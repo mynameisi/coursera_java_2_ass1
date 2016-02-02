@@ -32,7 +32,7 @@ public class MyLinkedListTester {
 		shortList = new MyLinkedList<String>();
 		shortList.add("A");
 		shortList.add("B");
-		shortList.printList();
+//		shortList.printList();
 		emptyList = new MyLinkedList<Integer>();
 		longerList = new MyLinkedList<Integer>();
 		for (int i = 0; i < LONG_LIST_LENGTH; i++) {
@@ -110,6 +110,25 @@ public class MyLinkedListTester {
 		assertEquals("Remove: check size is correct ", 2, list1.size());
 
 		// TODO: Add more tests here
+		try{
+			list1.remove(-1);
+			fail("Check out of bounds");
+		}catch(IndexOutOfBoundsException e){
+			
+		}
+		try{
+			emptyList.remove(0);
+			fail("Check out of bounds");
+		}catch(IndexOutOfBoundsException e){
+			
+		}
+		
+		try{
+			list1.remove(10);
+			fail("Check out of bounds");
+		}catch(IndexOutOfBoundsException e){
+			
+		}
 	}
 
 	/**
@@ -119,6 +138,17 @@ public class MyLinkedListTester {
 	@Test
 	public void testAddEnd() {
 		// TODO: implement this test
+		//1. if add null is not allowed
+		try {
+			emptyList.add(null);
+			fail("Can't add null value into a list");
+		} catch (NullPointerException e) {
+
+		}
+		//2. if an empty list can add
+		emptyList.add(3);
+		assertEquals("Check just just add 3", (Integer)3, emptyList.get(emptyList.size()-1));
+		
 	}
 
 	/** Test the size of the list */
@@ -135,6 +165,12 @@ public class MyLinkedListTester {
 	public void testAddAtIndex() {
 		// TODO: implement this test
 		//test index out of bounds
+		try {
+			emptyList.add(0,null);
+			fail("Can't add null value into a list");
+		} catch (NullPointerException e) {
+			
+		}
 		try {
 			shortList.add(-1, "C");
 			fail("Check out of bounds");
@@ -159,7 +195,24 @@ public class MyLinkedListTester {
 	/** Test setting an element in the list */
 	@Test
 	public void testSet() {
-		// TODO: implement this test
+		try{
+			list1.set(0,null);
+			fail("Check out of bounds");
+		}catch(NullPointerException e){
+			
+		}
+		try{
+			list1.set(-1,1);
+			fail("Check out of bounds");
+		}catch(IndexOutOfBoundsException e){
+			
+		}
+		try{
+			list1.set(10,1);
+			fail("Check out of bounds");
+		}catch(IndexOutOfBoundsException e){
+			
+		}
 
 	}
 

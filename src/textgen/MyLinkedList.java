@@ -24,14 +24,14 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		size = 0;
 	}
 
-	public void printList() {
-		LLNode<E> n = head;
-		for (int i = 0; i < size; i++) {
-			n = n.next;
-			System.out.print(n.data + " ");
-		}
-		System.out.println();
-	}
+//	public void printList() {
+//		LLNode<E> n = head;
+//		for (int i = 0; i < size; i++) {
+//			n = n.next;
+//			System.out.print(n.data + " ");
+//		}
+//		System.out.println();
+//	}
 
 	/**
 	 * Appends an element to the end of the list
