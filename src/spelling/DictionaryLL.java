@@ -44,12 +44,16 @@ public class DictionaryLL implements Dictionary
     public int size()
     {
         // TODO: Implement this method
-        return 0;
+        return dict.size();
     }
 
     /** Is this a word according to this dictionary? */
     public boolean isWord(String s) {
-        //TODO: Implement this method
+        for(String str:this.dict){
+        	if(str.equals(s.toLowerCase())){
+        		return true;
+        	}
+        }
         return false;
     }
 
